@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind CSS Project - Specifications</title>
+    <link rel="stylesheet" href="src/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+
+    <nav class="relative">
+        <div class="flex justify-between items-center p-6 bg-gradient-to-r from-pink-500 to-blue-500 shadow-md rounded-lg">
+            <div class="flex items-center space-x-2">
+                <img src="./images/Designer (3).jpeg" alt="Brand Logo" class="h-12 w-12 transition-transform duration-300 ease-in-out transform hover:scale-110 hover:opacity-80" />
+            </div>
+            <div class="hidden md:flex md:space-x-6">
+                <a href="index.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Home</a>
+                <a href="features.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Features</a>
+                <a href="specification.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Specifications</a>
+                <a href="gallery.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Gallery</a>
+                <a href="support.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Support</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white text-2xl focus:outline-none hover:scale-110 transition-transform duration-300">
+                    <span class="material-icons">menu</span>
+                </button>
+            </div>
+            <div class="hidden md:flex mt-4 md:mt-0">
+                <button id="theme-toggle" class="text-2xl text-white focus:outline-none hover:scale-110 transition-transform duration-300">
+                    <span id="theme-toggle-light" class="hidden"><img src="images/iconsun.png" alt="sun picture" class="h-10 w-10"></span>
+                    <span id="theme-toggle-dark"><img src="images/iconmoon.png" alt="moon picture" class="h-10 w-10"></span>
+                </button>
+            </div>
+        </div>
+        <!-- Dropdown Menu -->
+        <div id="dropdown-menu" class="hidden bg-gradient-to-r from-pink-500 to-blue-500 md:hidden">
+            <div class="flex flex-col items-center p-4 space-y-2">
+                <a href="index.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Home</a>
+                <a href="features.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Features</a>
+                <a href="specification.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Specifications</a>
+                <a href="gallery.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Gallery</a>
+                <a href="support.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="p-10">
+        <h1 class="text-3xl font-bold mb-6 text-center">Specifications</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+                <h2 class="text-xl font-semibold">Driver Size:</h2>
+                <p class="text-gray-600 dark:text-gray-300">The 40mm drivers deliver powerful sound and deep bass, providing an immersive audio experience. This size is optimized to create a balanced sound profile that enhances music playback across genres, making every note resonate.</p>
+                <img src="images/driver.jpeg" alt="Driver Size" class="w-full h-auto rounded-lg shadow-md mt-4">
+            </div>
+
+            <div>
+                <h2 class="text-xl font-semibold">Frequency Response:</h2>
+                <p class="text-gray-600 dark:text-gray-300">This range ensures that you can hear all audio frequencies clearly, from deep bass to crisp highs. With such a wide frequency response, you’ll experience the full depth of your music, allowing for rich vocals and intricate instrumentals.</p>
+                <img src="images/frequency.jpeg" alt="Frequency Response" class="w-full h-auto rounded-lg shadow-md mt-4">
+            </div>
+
+            <div>
+                <h2 class="text-xl font-semibold">Battery Life:</h2>
+                <p class="text-gray-600 dark:text-gray-300">Enjoy long listening sessions without the need for constant recharging, making these headphones perfect for travel. The efficient battery technology ensures that you can enjoy your favorite playlists without interruption, even on long journeys.</p>
+                <img src="images/battery.jpeg" alt="Battery Life" class="w-full h-auto rounded-lg shadow-md mt-4">
+            </div>
+
+            <div>
+                <h2 class="text-xl font-semibold">Weight:</h2>
+                <p class="text-gray-600 dark:text-gray-300">Lightweight design ensures comfort during extended use, so you can enjoy your music without discomfort. This low weight contributes to a fatigue-free listening experience, making these headphones ideal for daily use or extended periods.</p>
+                <img src="images/weight.jpeg" alt="Weight" class="w-full h-auto rounded-lg shadow-md mt-4">
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-100 dark:bg-gray-800 text-center p-6">
+        <p class="text-sm">&copy; 2024 Hayat Aghdoube. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Dropdown Menu and Dark Mode Toggle -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light');
+        const darkIcon = document.getElementById('theme-toggle-dark');
+        const menuToggle = document.getElementById('menu-toggle');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        // Changing themes
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            darkIcon.classList.add('hidden');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+            lightIcon.classList.add('hidden');
+        }
+
+        // Toggle dropdown menu
+        menuToggle.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Toggle themes
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                darkIcon.classList.add('hidden');
+                lightIcon.classList.remove('hidden');
+            } else {
+                localStorage.setItem('theme', 'light');
+                darkIcon.classList.remove('hidden');
+                lightIcon.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>

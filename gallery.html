@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind CSS Project - Gallery</title>
+    <link rel="stylesheet" href="src/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+
+    <nav class="relative">
+        <div class="flex justify-between items-center p-6 bg-gradient-to-r from-pink-500 to-blue-500 shadow-md rounded-lg">
+            <div class="flex items-center space-x-2">
+                <img src="./images/Designer (3).jpeg" alt="Brand Logo" class="h-12 w-12 transition-transform duration-300 ease-in-out transform hover:scale-110 hover:opacity-80" />
+            </div>
+            <div class="hidden md:flex md:space-x-6">
+                <a href="index.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Home</a>
+                <a href="features.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Features</a>
+                <a href="specification.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Specifications</a>
+                <a href="gallery.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Gallery</a>
+                <a href="support.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Support</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white text-2xl focus:outline-none hover:scale-110 transition-transform duration-300">
+                    <span class="material-icons">menu</span>
+                </button>
+            </div>
+            <div class="hidden md:flex mt-4 md:mt-0">
+                <button id="theme-toggle" class="text-2xl text-white focus:outline-none hover:scale-110 transition-transform duration-300">
+                    <span id="theme-toggle-light" class="hidden"><img src="images/iconsun.png" alt="sun picture" class="h-10 w-10"></span>
+                    <span id="theme-toggle-dark"><img src="images/iconmoon.png" alt="moon picture" class="h-10 w-10"></span>
+                </button>
+            </div>
+        </div>
+        <!-- Dropdown Menu -->
+        <div id="dropdown-menu" class="hidden bg-gradient-to-r from-pink-500 to-blue-500 md:hidden">
+            <div class="flex flex-col items-center p-4 space-y-2">
+                <a href="index.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Home</a>
+                <a href="features.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Features</a>
+                <a href="specification.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Specifications</a>
+                <a href="gallery.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Gallery</a>
+                <a href="support.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="p-10">
+        <h1 class="text-3xl font-bold mb-6 text-center">Gallery</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <img src="galleryimages/Designer (15).jpeg" alt="Gallery Image 1" class="w-full h-auto rounded-lg shadow-md">
+            <img src="galleryimages/Designer (16).jpeg" alt="Gallery Image 2" class="w-full h-auto rounded-lg shadow-md">
+            <img src="galleryimages/Designer (17).jpeg" alt="Gallery Image 3" class="w-full h-auto rounded-lg shadow-md">
+            <img src="galleryimages/Designer (18).jpeg" alt="Gallery Image 4" class="w-full h-auto rounded-lg shadow-md">
+            <img src="galleryimages/Designer (19).jpeg" alt="Gallery Image 5" class="w-full h-auto rounded-lg shadow-md">
+            <img src="galleryimages/Designer (20).jpeg" alt="Gallery Image 6" class="w-full h-auto rounded-lg shadow-md">
+            <img src="galleryimages/Designer (21).jpeg" alt="Gallery Image 7" class="w-full h-auto rounded-lg shadow-md">
+            <img src="galleryimages/Designer (22).jpeg" alt="Gallery Image 8" class="w-full h-auto rounded-lg shadow-md">
+            <img src="galleryimages/Designer (23).jpeg" alt="Gallery Image 9" class="w-full h-auto rounded-lg shadow-md">
+            <img src="galleryimages/Designer (24).jpeg" alt="Gallery Image 10" class="w-full h-auto rounded-lg shadow-md">
+            <img src="galleryimages/Designer (25).jpeg" alt="Gallery Image 11" class="w-full h-auto rounded-lg shadow-md">
+            <img src="galleryimages/Designer (26).jpeg" alt="Gallery Image 12" class="w-full h-auto rounded-lg shadow-md">
+        </div>
+    </main>
+
+    <footer class="bg-gray-100 dark:bg-gray-800 text-center p-6">
+        <p class="text-sm">&copy; 2024 Hayat Aghdoube. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Dropdown Menu and Dark Mode Toggle -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light');
+        const darkIcon = document.getElementById('theme-toggle-dark');
+        const menuToggle = document.getElementById('menu-toggle');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        // Changing themes
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            darkIcon.classList.add('hidden');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+            lightIcon.classList.add('hidden');
+        }
+
+        // Toggle dropdown menu
+        menuToggle.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Toggle themes
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                darkIcon.classList.add('hidden');
+                lightIcon.classList.remove('hidden');
+            } else {
+                localStorage.setItem('theme', 'light');
+                darkIcon.classList.remove('hidden');
+                lightIcon.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>
