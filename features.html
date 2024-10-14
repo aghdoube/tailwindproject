@@ -7,9 +7,40 @@
     <title>Tailwind CSS Project - Features</title>
     <link rel="stylesheet" href="src/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .soundwave {
+            position: absolute;
+            height: 4px; 
+            background: rgba(62, 21, 182, 0.836);
+            pointer-events: none;
+            z-index: 1000;
+            transform: translateY(-50%);
+            animation: wave-animation 0.6s ease-out forwards;
+        }
+
+        @keyframes wave-animation {
+            0% {
+                width: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 300px; 
+                opacity: 0;
+            }
+        }
+
+        img.pop-out {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        img.pop-out:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 
-<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+<body class="bg-violet-300 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
 
     <nav class="relative">
         <div class="flex justify-between items-center p-6 bg-gradient-to-r from-pink-500 to-blue-500 shadow-md rounded-lg">
@@ -35,7 +66,6 @@
                 </button>
             </div>
         </div>
-        <!-- Dropdown Menu -->
         <div id="dropdown-menu" class="hidden bg-gradient-to-r from-pink-500 to-blue-500 md:hidden">
             <div class="flex flex-col items-center p-4 space-y-2">
                 <a href="index.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Home</a>
@@ -53,30 +83,30 @@
 
             <!-- Feature 1 -->
             <div class="w-full md:w-1/2 p-4">
-                <h2 class="text-2xl font-bold mb-2">Feature 1: Immersive Sound Quality</h2>
+                <h2 class="text-2xl font-bold mb-2"> Immersive Sound Quality</h2>
                 <p class="text-gray-600 dark:text-gray-300 mb-4">Experience crystal clear audio with enhanced bass and treble, allowing you to enjoy your favorite tracks like never before.</p>
-                <img src="images/girl.jpeg" alt="Immersive Sound Quality" class="w-full rounded-lg shadow-md mb-2" />
+                <img src="images/girl.jpeg" alt="Immersive Sound Quality" class="w-full rounded-lg shadow-md mb-2 pop-out" />
             </div>
 
             <!-- Feature 2 -->
             <div class="w-full md:w-1/2 p-4">
-                <h2 class="text-2xl font-bold mb-2">Feature 2: Stylish Design</h2>
+                <h2 class="text-2xl font-bold mb-2"> Stylish Design</h2>
                 <p class="text-gray-600 dark:text-gray-300 mb-4">Our headphones not only deliver superior sound but also feature a sleek, modern design that fits any style.</p>
-                <img src="images/hp3.jpeg" alt="Stylish Design" class="w-full rounded-lg shadow-md mb-2" />
+                <img src="images/hp3.jpeg" alt="Stylish Design" class="w-full rounded-lg shadow-md mb-2 pop-out" />
             </div>
 
             <!-- Feature 3 -->
             <div class="w-full md:w-1/2 p-4">
-                <h2 class="text-2xl font-bold mb-2">Feature 3: Bluetooth Connectivity</h2>
+                <h2 class="text-2xl font-bold mb-2"> Bluetooth Connectivity</h2>
                 <p class="text-gray-600 dark:text-gray-300 mb-4">Enjoy seamless wireless connection with Bluetooth 5.0 technology, ensuring stable audio transmission and compatibility with various devices.</p>
-                <img src="images/bluetooth.jpeg" alt="Bluetooth Connectivity" class="w-full rounded-lg shadow-md mb-2" />
+                <img src="images/bluetooth.jpeg" alt="Bluetooth Connectivity" class="w-full rounded-lg shadow-md mb-2 pop-out" />
             </div>
 
             <!-- Feature 4 -->
             <div class="w-full md:w-1/2 p-4">
-                <h2 class="text-2xl font-bold mb-2">Feature 4: Comfortable Fit</h2>
+                <h2 class="text-2xl font-bold mb-2"> Comfortable Fit</h2>
                 <p class="text-gray-600 dark:text-gray-300 mb-4">Designed for extended wear, these headphones come with soft ear cushions and an adjustable headband, ensuring a perfect fit for all head sizes.</p>
-                <img src="images/guy.jpeg" alt="Comfortable Fit" class="w-full rounded-lg shadow-md mb-2" />
+                <img src="images/guy.jpeg" alt="Comfortable Fit" class="w-full rounded-lg shadow-md mb-2 pop-out" />
             </div>
         </div>
     </main>
@@ -85,7 +115,6 @@
         <p class="text-sm">&copy; 2024 Hayat Aghdoube. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript for Dropdown Menu and Dark Mode Toggle -->
     <script>
         const themeToggle = document.getElementById('theme-toggle');
         const lightIcon = document.getElementById('theme-toggle-light');
@@ -121,6 +150,18 @@
                 darkIcon.classList.remove('hidden');
                 lightIcon.classList.add('hidden');
             }
+        });
+
+        // Mouse wave effect
+        document.body.addEventListener('mousemove', (e) => {
+            const soundwave = document.createElement('div');
+            soundwave.classList.add('soundwave');
+            soundwave.style.left = `${e.pageX}px`;
+            soundwave.style.top = `${e.pageY}px`;
+            document.body.appendChild(soundwave);
+            setTimeout(() => {
+                soundwave.remove();
+            }, 600);
         });
     </script>
 </body>

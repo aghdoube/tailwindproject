@@ -7,9 +7,50 @@
     <title>Tailwind CSS Project - Support</title>
     <link rel="stylesheet" href="src/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Added hover effect for social media icons */
+        .social-icon {
+            transition: transform 0.3s ease; /* Smooth transition */
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2); /* Scale up on hover */
+        }
+
+        /* Styles for the hero image container */
+        .hero-image {
+            position: relative; /* Allow absolute positioning of overlay */
+            overflow: hidden; /* Prevent overflow of children */
+        }
+
+        .hero-overlay {
+            position: absolute; /* Position overlay absolutely */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black */
+            transition: opacity 0.3s ease; /* Smooth transition for overlay */
+        }
+
+        .hero-image:hover .hero-overlay {
+            opacity: 0.5; /* Change overlay opacity on hover */
+        }
+
+        /* Flexbox to make sure footer is at the bottom */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+        }
+
+        main {
+            flex: 1; /* Allow main content to grow and fill the available space */
+        }
+    </style>
 </head>
 
-<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+<body class="bg-violet-300 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
 
     <nav class="relative">
         <div class="flex justify-between items-center p-6 bg-gradient-to-r from-pink-500 to-blue-500 shadow-md rounded-lg">
@@ -66,24 +107,23 @@
             <h2 class="text-2xl font-bold mb-4">Follow Us</h2>
             <div class="flex justify-center space-x-4">
                 <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                    <img src="galleryimages/facebook.png" alt="Facebook" class="w-8 h-8">
+                    <img src="galleryimages/facebook.png" alt="Facebook" class="social-icon w-8 h-8">
                 </a>
                 <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-                    <img src="galleryimages/twitter.png" alt="Twitter" class="w-8 h-8">
+                    <img src="galleryimages/twitter.png" alt="Twitter" class="social-icon w-8 h-8">
                 </a>
                 <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                    <img src="galleryimages/instagram.png" alt="Instagram" class="w-8 h-8">
+                    <img src="galleryimages/instagram.png" alt="Instagram" class="social-icon w-8 h-8">
                 </a>
                 <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                    <img src="galleryimages/linkedin.png" alt="LinkedIn" class="w-8 h-8">
+                    <img src="galleryimages/linkedin.png" alt="LinkedIn" class="social-icon w-8 h-8">
                 </a>
             </div>
         </div>
 
-        <!-- Hero Image -->
-        <div class="mt-10 relative w-full">
-            <img src="./images/bgi.jpg" alt="Support Image" class="w-full h-61 object-cover rounded-lg shadow-md">
-            <div class="absolute inset-0 bg-black opacity-30 rounded-lg"></div>
+        <!-- Hero Image Removed -->
+        <div class="mt-10 hero-image">
+            <div class="hero-overlay"></div>
         </div>
     </main>
 

@@ -7,9 +7,40 @@
     <title>Tailwind CSS Project - Specifications</title>
     <link rel="stylesheet" href="src/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .soundwave {
+            position: absolute;
+            height: 4px; 
+            background: rgba(62, 21, 182, 0.836);
+            pointer-events: none;
+            z-index: 1000;
+            transform: translateY(-50%);
+            animation: wave-animation 0.6s ease-out forwards;
+        }
+
+        @keyframes wave-animation {
+            0% {
+                width: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 300px; 
+                opacity: 0;
+            }
+        }
+
+        img.pop-out {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        img.pop-out:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 
-<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+<body class="bg-violet-300 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
 
     <nav class="relative">
         <div class="flex justify-between items-center p-6 bg-gradient-to-r from-pink-500 to-blue-500 shadow-md rounded-lg">
@@ -53,25 +84,25 @@
             <div>
                 <h2 class="text-xl font-semibold">Driver Size:</h2>
                 <p class="text-gray-600 dark:text-gray-300">The 40mm drivers deliver powerful sound and deep bass, providing an immersive audio experience. This size is optimized to create a balanced sound profile that enhances music playback across genres, making every note resonate.</p>
-                <img src="images/driver.jpeg" alt="Driver Size" class="w-full h-auto rounded-lg shadow-md mt-4">
+                <img src="images/driver.jpeg" alt="Driver Size" class="w-full h-auto rounded-lg shadow-md mt-4 pop-out">
             </div>
 
             <div>
                 <h2 class="text-xl font-semibold">Frequency Response:</h2>
                 <p class="text-gray-600 dark:text-gray-300">This range ensures that you can hear all audio frequencies clearly, from deep bass to crisp highs. With such a wide frequency response, you’ll experience the full depth of your music, allowing for rich vocals and intricate instrumentals.</p>
-                <img src="images/frequency.jpeg" alt="Frequency Response" class="w-full h-auto rounded-lg shadow-md mt-4">
+                <img src="images/frequency.jpeg" alt="Frequency Response" class="w-full h-auto rounded-lg shadow-md mt-4 pop-out">
             </div>
 
             <div>
                 <h2 class="text-xl font-semibold">Battery Life:</h2>
                 <p class="text-gray-600 dark:text-gray-300">Enjoy long listening sessions without the need for constant recharging, making these headphones perfect for travel. The efficient battery technology ensures that you can enjoy your favorite playlists without interruption, even on long journeys.</p>
-                <img src="images/battery.jpeg" alt="Battery Life" class="w-full h-auto rounded-lg shadow-md mt-4">
+                <img src="images/battery.jpeg" alt="Battery Life" class="w-full h-auto rounded-lg shadow-md mt-4 pop-out">
             </div>
 
             <div>
                 <h2 class="text-xl font-semibold">Weight:</h2>
                 <p class="text-gray-600 dark:text-gray-300">Lightweight design ensures comfort during extended use, so you can enjoy your music without discomfort. This low weight contributes to a fatigue-free listening experience, making these headphones ideal for daily use or extended periods.</p>
-                <img src="images/weight.jpeg" alt="Weight" class="w-full h-auto rounded-lg shadow-md mt-4">
+                <img src="images/weight.jpeg" alt="Weight" class="w-full h-auto rounded-lg shadow-md mt-4 pop-out">
             </div>
         </div>
     </main>
@@ -116,6 +147,18 @@
                 darkIcon.classList.remove('hidden');
                 lightIcon.classList.add('hidden');
             }
+        });
+
+        // Mouse wave effect
+        document.body.addEventListener('mousemove', (e) => {
+            const soundwave = document.createElement('div');
+            soundwave.classList.add('soundwave');
+            soundwave.style.left = `${e.pageX}px`;
+            soundwave.style.top = `${e.pageY}px`;
+            document.body.appendChild(soundwave);
+            setTimeout(() => {
+                soundwave.remove();
+            }, 600);
         });
     </script>
 </body>
