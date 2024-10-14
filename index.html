@@ -7,11 +7,15 @@
     <title>Tailwind CSS Project</title>
     <link rel="stylesheet" href="src/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        };
+    </script>
     <style>
-        
         .soundwave {
             position: absolute;
-            height: 4px; 
+            height: 4px;
             background: rgba(62, 21, 182, 0.836);
             pointer-events: none;
             z-index: 1000;
@@ -25,12 +29,11 @@
                 opacity: 1;
             }
             100% {
-                width: 300px; 
+                width: 300px;
                 opacity: 0;
             }
         }
 
-        
         img.pop-out {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -40,16 +43,18 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-       
         body {
-            position: relative; 
-            min-height: 100vh; 
-            overflow-y: auto; 
+            position: relative;
+            min-height: 100vh;
+            overflow-y: auto;
         }
 
-        
         section {
             min-height: 100vh;
+        }
+
+        .dark h1 {
+            background-image: url('images/darkbg2.jpeg') !important;
         }
     </style>
 </head>
@@ -62,11 +67,11 @@
                 <img src="./images/Designer (3).jpeg" alt="Brand Logo" class="h-12 w-12 transition-transform duration-300 ease-in-out transform hover:scale-110 hover:opacity-80" />
             </div>
             <div class="hidden md:flex md:space-x-6">
-                <a href="index.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Home</a>
-                <a href="features.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Features</a>
-                <a href="specification.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Specifications</a>
-                <a href="gallery.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Gallery</a>
-                <a href="support.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Support</a>
+                <a href="index.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-cyan-400">Home</a>
+                <a href="features.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-cyan-400">Features</a>
+                <a href="specification.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-cyan-400">Specifications</a>
+                <a href="gallery.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-cyan-400">Gallery</a>
+                <a href="support.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-cyan-400">Support</a>
             </div>
             <div class="md:hidden">
                 <button id="menu-toggle" class="text-white text-2xl focus:outline-none hover:scale-110 transition-transform duration-300">
@@ -80,36 +85,31 @@
                 </button>
             </div>
         </div>
-        
+
         <div id="dropdown-menu" class="hidden bg-gradient-to-r from-pink-600 via-pink-500 to-blue-600 md:hidden">
             <div class="flex flex-col items-center p-4 space-y-2">
-                <a href="index.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Home</a>
-                <a href="features.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Features</a>
-                <a href="specification.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Specifications</a>
-                <a href="gallery.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Gallery</a>
-                <a href="support.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Support</a>
+                <a href="index.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-cyan-400">Home</a>
+                <a href="features.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-cyan-400">Features</a>
+                <a href="specification.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-cyan-400">Specifications</a>
+                <a href="gallery.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-cyan-400">Gallery</a>
+                <a href="support.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-cyan-400">Support</a>
             </div>
         </div>
-        
     </nav>
+    
     <section class="h-3/4 md:h-3/4 sm:h-1/2 flex flex-col justify-center items-center bg-cover bg-center relative">
-        <img src="images/wave.png" alt="Headphones" class="w-full max-w-2xl h-auto mb-4 transition-transform duration-300 ease-in-out transform hover:scale-110" />
+        <img src="images/darkwave.png" alt="Headphones" class="w-full max-w-2xl h-auto mb-4 transition-transform duration-300 ease-in-out transform hover:scale-110" id="darkwaveImage" />
         <h1 class="text-4xl md:text-6xl lg:text-8xl font-extrabold uppercase tracking-wide bg-clip-text text-transparent py-4 md:py-10"
             style="background-image: url('images/background.jpeg'); background-size: cover;">
             KiRaZ HeadPhones
         </h1>
-        <p class="text-lg md:text-xl text-center text-black px-4 md:px-16 mt-4">
+        <p class="text-lg md:text-xl text-center text-black px-4 md:px-16 mt-4 dark:text-white">
             Welcome to KiRaZ HeadPhones, your ultimate destination for high-quality audio experiences. Our innovative headphones are designed to elevate your music listening and provide unmatched comfort. Whether you’re a casual listener or an audiophile, our collection has something special just for you. Explore our diverse range of products and discover the perfect pair that suits your style and needs.
         </p>
-        <p class="text-lg md:text-xl text-center text-black px-4 md:px-16 mt-4">
+        <p class="text-lg md:text-xl text-center text-black px-4 md:px-16 mt-4 dark:text-white">
             Dive into our features and specifications to understand what makes KiRaZ HeadPhones stand out in the market. With cutting-edge technology, sleek designs, and vibrant colors, we cater to your aesthetic and functional desires. Join our community of music lovers, and let your sound journey begin! Scroll down to explore our gallery and find your next favorite headphones!
         </p>
     </section>
-    
-    
-    
-    
-
 
     <section class="p-10">
         <div class="flex flex-wrap">
@@ -151,15 +151,17 @@
         <p class="text-sm">&copy; 2024 Hayat Aghdoube. All Rights Reserved.</p>
     </footer>
 
-    
+    <!-- Audio Element -->
+    <audio id="hoverSound" src="images/musicfox_modern_industry.mp3" preload="auto"></audio>
+
     <script>
         const themeToggle = document.getElementById('theme-toggle');
         const lightIcon = document.getElementById('theme-toggle-light');
         const darkIcon = document.getElementById('theme-toggle-dark');
         const menuToggle = document.getElementById('menu-toggle');
         const dropdownMenu = document.getElementById('dropdown-menu');
-
-        
+    
+        // Dark mode theme management
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark');
             darkIcon.classList.add('hidden');
@@ -169,13 +171,11 @@
             darkIcon.classList.remove('hidden');
             lightIcon.classList.add('hidden');
         }
-
-        
+    
         menuToggle.addEventListener('click', () => {
             dropdownMenu.classList.toggle('hidden');
         });
-
-        
+    
         themeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
             if (document.documentElement.classList.contains('dark')) {
@@ -188,21 +188,34 @@
                 lightIcon.classList.add('hidden');
             }
         });
-
-        
+    
         document.body.addEventListener('mousemove', (e) => {
             const soundwave = document.createElement('div');
             soundwave.classList.add('soundwave');
             soundwave.style.left = `${e.pageX}px`;
             soundwave.style.top = `${e.pageY}px`;
             document.body.appendChild(soundwave);
-
-            
+    
             setTimeout(() => {
                 soundwave.remove();
             }, 600); 
         });
+    
+        // Play sound when hovering over the darkwave image
+        const darkwaveImage = document.getElementById('darkwaveImage');
+        const hoverSound = document.getElementById('hoverSound');
+    
+        darkwaveImage.addEventListener('mouseenter', () => {
+            hoverSound.currentTime = 0; // Reset sound to start
+            hoverSound.play(); // Play sound
+        });
+    
+        darkwaveImage.addEventListener('mouseleave', () => {
+            hoverSound.pause(); // Pause sound
+            hoverSound.currentTime = 0; // Reset sound to start
+        });
     </script>
+    
 </body>
 
 </html>
