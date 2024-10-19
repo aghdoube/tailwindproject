@@ -13,26 +13,9 @@
         };
     </script>
     <style>
-        .soundwave {
-            position: absolute;
-            height: 4px; 
-            background: rgba(62, 21, 182, 0.836);
-            pointer-events: none;
-            z-index: 1000;
-            transform: translateY(-50%);
-            animation: wave-animation 0.6s ease-out forwards;
-        }
+        
 
-        @keyframes wave-animation {
-            0% {
-                width: 0;
-                opacity: 1;
-            }
-            100% {
-                width: 300px; 
-                opacity: 0;
-            }
-        }
+       
 
         img.pop-out {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -42,10 +25,48 @@
             transform: scale(1.05);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
+
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
-<body class="bg-violet-300 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
 
     <nav class="relative">
         <div class="flex justify-between items-center p-6 bg-gradient-to-r from-pink-500 to-blue-500 shadow-md rounded-lg">
@@ -71,7 +92,7 @@
                 </button>
             </div>
         </div>
-        <!-- Dropdown Menu -->
+        
         <div id="dropdown-menu" class="hidden bg-gradient-to-r from-pink-500 to-blue-500 md:hidden">
             <div class="flex flex-col items-center p-4 space-y-2">
                 <a href="index.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Home</a>
@@ -84,40 +105,157 @@
     </nav>
 
     <main class="p-10">
-        <h1 class="text-3xl font-bold mb-6 text-center">Specifications</h1>
+        <h1 class="text-4xl font-bold mb-8 text-center">Specifications</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div>
-                <h2 class="text-xl font-semibold">Driver Size:</h2>
-                <p class="text-gray-600 dark:text-gray-300">The 40mm drivers deliver powerful sound and deep bass, providing an immersive audio experience. This size is optimized to create a balanced sound profile that enhances music playback across genres, making every note resonate.</p>
-                <img src="images/driver.jpeg" alt="Driver Size" class="w-full h-auto rounded-lg shadow-md mt-4 pop-out">
+            
+            <div class="flex items-start space-x-6 mb-10">
+                <img src="images/driver.jpeg" alt="Driver Size" class="w-80 h-80 object-cover rounded-lg shadow-md pop-out cursor-pointer" onclick="openModal('driverModal')">
+                <div>
+                    <h2 class="text-2xl font-semibold mb-2">Driver Size:</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-2 text-lg">The 40mm drivers deliver powerful sound and deep bass, providing an immersive audio experience. This size is optimized to create a balanced sound profile that enhances music playback across genres.</p>
+                    <ul class="list-disc pl-5 text-gray-500 dark:text-gray-400 text-lg">
+                        <li>Designed for superior audio clarity</li>
+                        <li>Produces deep, resonant bass</li>
+                        <li>Ideal for all types of music, from classical to rock</li>
+                        <li>Offers an expansive soundstage for better immersion</li>
+                    </ul>
+                    <p class="text-gray-500 dark:text-gray-400 text-lg mt-2">Experience music like never before with rich, immersive sound that takes your listening experience to the next level!</p>
+                </div>
             </div>
 
-            <div>
-                <h2 class="text-xl font-semibold">Frequency Response:</h2>
-                <p class="text-gray-600 dark:text-gray-300">This range ensures that you can hear all audio frequencies clearly, from deep bass to crisp highs. With such a wide frequency response, you’ll experience the full depth of your music, allowing for rich vocals and intricate instrumentals.</p>
-                <img src="images/frequency.jpeg" alt="Frequency Response" class="w-full h-auto rounded-lg shadow-md mt-4 pop-out">
+            
+            <div class="flex items-start space-x-6 mb-10">
+                <img src="images/frequency.jpeg" alt="Frequency Response" class="w-80 h-80 object-cover rounded-lg shadow-md pop-out cursor-pointer" onclick="openModal('frequencyModal')">
+                <div>
+                    <h2 class="text-2xl font-semibold mb-2">Frequency Response:</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-2 text-lg">This range ensures that you can hear all audio frequencies clearly, from deep bass to crisp highs. With a frequency response ranging from 20Hz to 20kHz, this model captures the full spectrum of sound.</p>
+                    <ul class="list-disc pl-5 text-gray-500 dark:text-gray-400 text-lg">
+                        <li>Ensures detailed sound reproduction</li>
+                        <li>Highlights subtle nuances in recordings</li>
+                        <li>Perfect for audiophiles and casual listeners alike</li>
+                        <li>Reproduces clear dialogue for podcasts and audiobooks</li>
+                    </ul>
+                    <p class="text-gray-500 dark:text-gray-400 text-lg mt-2">Feel every note and beat with clarity and precision, elevating your audio experience to unmatched levels!</p>
+                </div>
             </div>
 
-            <div>
-                <h2 class="text-xl font-semibold">Battery Life:</h2>
-                <p class="text-gray-600 dark:text-gray-300">Enjoy long listening sessions without the need for constant recharging, making these headphones perfect for travel. The efficient battery technology ensures that you can enjoy your favorite playlists without interruption, even on long journeys.</p>
-                <img src="images/battery.jpeg" alt="Battery Life" class="w-full h-auto rounded-lg shadow-md mt-4 pop-out">
+            
+            <div class="flex items-start space-x-6 mb-10">
+                <img src="images/battery.jpeg" alt="Battery Life" class="w-80 h-80 object-cover rounded-lg shadow-md pop-out cursor-pointer" onclick="openModal('batteryModal')">
+                <div>
+                    <h2 class="text-2xl font-semibold mb-2">Battery Life:</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-2 text-lg">Enjoy long listening sessions without the need for constant recharging, thanks to the state-of-the-art battery technology that can last up to 30 hours on a single charge.</p>
+                    <ul class="list-disc pl-5 text-gray-500 dark:text-gray-400 text-lg">
+                        <li>Quick charging capabilities</li>
+                        <li>Lasts through the longest playlists and commutes</li>
+                        <li>Low battery indicator to keep you informed</li>
+                        <li>Perfect for travel and extended use</li>
+                    </ul>
+                    <p class="text-gray-500 dark:text-gray-400 text-lg mt-2">Stay immersed in your music without interruptions, perfect for long flights, road trips, or daily use!</p>
+                </div>
             </div>
 
-            <div>
-                <h2 class="text-xl font-semibold">Weight:</h2>
-                <p class="text-gray-600 dark:text-gray-300">Lightweight design ensures comfort during extended use, so you can enjoy your music without discomfort. This low weight contributes to a fatigue-free listening experience, making these headphones ideal for daily use or extended periods.</p>
-                <img src="images/weight.jpeg" alt="Weight" class="w-full h-auto rounded-lg shadow-md mt-4 pop-out">
+            
+            <div class="flex items-start space-x-6 mb-10">
+                <img src="images/weight.jpeg" alt="Weight" class="w-80 h-80 object-cover rounded-lg shadow-md pop-out cursor-pointer" onclick="openModal('weightModal')">
+                <div>
+                    <h2 class="text-2xl font-semibold mb-2">Weight:</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-2 text-lg">Lightweight design ensures comfort during extended use, weighing only 250 grams. This makes it perfect for long listening sessions, whether you're at home, commuting, or at the gym.</p>
+                    <ul class="list-disc pl-5 text-gray-500 dark:text-gray-400 text-lg">
+                        <li>Adjustable headband for a personalized fit</li>
+                        <li>Padded ear cushions for all-day comfort</li>
+                        <li>Compact design for easy portability</li>
+                        <li>Forget you're wearing them during extended use</li>
+                    </ul>
+                    <p class="text-gray-500 dark:text-gray-400 text-lg mt-2">Immerse yourself in your favorite tracks without discomfort!</p>
+                </div>
             </div>
         </div>
+
+        
+        <div id="driverModal" class="modal">
+            <div class="modal-content relative">
+                <span class="close" onclick="closeModal('driverModal')">&times;</span>
+                <img src="images/driver.jpeg" alt="Driver Size" class="w-full h-auto mb-4 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-2">Driver Size:</h2>
+                <p class="text-gray-600 dark:text-gray-300 text-lg">The 40mm drivers deliver powerful sound and deep bass, providing an immersive audio experience. This size is optimized to create a balanced sound profile that enhances music playback across genres.</p>
+                <ul class="list-disc pl-5 text-gray-500 dark:text-gray-400 text-lg">
+                    <li>Designed for superior audio clarity</li>
+                    <li>Produces deep, resonant bass</li>
+                    <li>Ideal for all types of music, from classical to rock</li>
+                    <li>Offers an expansive soundstage for better immersion</li>
+                </ul>
+                <p class="text-gray-500 dark:text-gray-400 text-lg mt-2">Experience music like never before with rich, immersive sound that takes your listening experience to the next level!</p>
+            </div>
+        </div>
+
+        
+        <div id="frequencyModal" class="modal">
+            <div class="modal-content relative">
+                <span class="close" onclick="closeModal('frequencyModal')">&times;</span>
+                <img src="images/frequency.jpeg" alt="Frequency Response" class="w-full h-auto mb-4 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-2">Frequency Response:</h2>
+                <p class="text-gray-600 dark:text-gray-300 text-lg">This range ensures that you can hear all audio frequencies clearly, from deep bass to crisp highs. With a frequency response ranging from 20Hz to 20kHz, this model captures the full spectrum of sound.</p>
+                <ul class="list-disc pl-5 text-gray-500 dark:text-gray-400 text-lg">
+                    <li>Ensures detailed sound reproduction</li>
+                    <li>Highlights subtle nuances in recordings</li>
+                    <li>Perfect for audiophiles and casual listeners alike</li>
+                    <li>Reproduces clear dialogue for podcasts and audiobooks</li>
+                </ul>
+                <p class="text-gray-500 dark:text-gray-400 text-lg mt-2">Feel every note and beat with clarity and precision, elevating your audio experience to unmatched levels!</p>
+            </div>
+        </div>
+
+        
+        <div id="batteryModal" class="modal">
+            <div class="modal-content relative">
+                <span class="close" onclick="closeModal('batteryModal')">&times;</span>
+                <img src="images/battery.jpeg" alt="Battery Life" class="w-full h-auto mb-4 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-2">Battery Life:</h2>
+                <p class="text-gray-600 dark:text-gray-300 text-lg">Enjoy long listening sessions without the need for constant recharging, thanks to the state-of-the-art battery technology that can last up to 30 hours on a single charge.</p>
+                <ul class="list-disc pl-5 text-gray-500 dark:text-gray-400 text-lg">
+                    <li>Quick charging capabilities</li>
+                    <li>Lasts through the longest playlists and commutes</li>
+                    <li>Low battery indicator to keep you informed</li>
+                    <li>Perfect for travel and extended use</li>
+                </ul>
+                <p class="text-gray-500 dark:text-gray-400 text-lg mt-2">Stay immersed in your music without interruptions, perfect for long flights, road trips, or daily use!</p>
+            </div>
+        </div>
+
+        
+        <div id="weightModal" class="modal">
+            <div class="modal-content relative">
+                <span class="close" onclick="closeModal('weightModal')">&times;</span>
+                <img src="images/weight.jpeg" alt="Weight" class="w-full h-auto mb-4 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-2">Weight:</h2>
+                <p class="text-gray-600 dark:text-gray-300 text-lg">Lightweight design ensures comfort during extended use, weighing only 250 grams. This makes it perfect for long listening sessions, whether you're at home, commuting, or at the gym.</p>
+                <ul class="list-disc pl-5 text-gray-500 dark:text-gray-400 text-lg">
+                    <li>Adjustable headband for a personalized fit</li>
+                    <li>Padded ear cushions for all-day comfort</li>
+                    <li>Compact design for easy portability</li>
+                    <li>Forget you're wearing them during extended use</li>
+                </ul>
+                <p class="text-gray-500 dark:text-gray-400 text-lg mt-2">Immerse yourself in your favorite tracks without discomfort!</p>
+            </div>
+        </div>
+
     </main>
 
     <footer class="bg-gray-100 dark:bg-gray-800 text-center p-6">
         <p class="text-sm">&copy; 2024 Hayat Aghdoube. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript for Dropdown Menu and Dark Mode Toggle -->
+    
     <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
         const themeToggle = document.getElementById('theme-toggle');
         const lightIcon = document.getElementById('theme-toggle-light');
         const darkIcon = document.getElementById('theme-toggle-dark');
@@ -154,17 +292,7 @@
             }
         });
 
-        // Mouse wave effect
-        document.body.addEventListener('mousemove', (e) => {
-            const soundwave = document.createElement('div');
-            soundwave.classList.add('soundwave');
-            soundwave.style.left = `${e.pageX}px`;
-            soundwave.style.top = `${e.pageY}px`;
-            document.body.appendChild(soundwave);
-            setTimeout(() => {
-                soundwave.remove();
-            }, 600);
-        });
+        
     </script>
 </body>
 

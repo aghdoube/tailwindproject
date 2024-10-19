@@ -13,26 +13,9 @@
         };
     </script>
     <style>
-        .soundwave {
-            position: absolute;
-            height: 4px; 
-            background: rgba(62, 21, 182, 0.836);
-            pointer-events: none;
-            z-index: 1000;
-            transform: translateY(-50%);
-            animation: wave-animation 0.6s ease-out forwards;
-        }
+       
 
-        @keyframes wave-animation {
-            0% {
-                width: 0;
-                opacity: 1;
-            }
-            100% {
-                width: 300px; 
-                opacity: 0;
-            }
-        }
+        
 
         img.pop-out {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -45,7 +28,7 @@
     </style>
 </head>
 
-<body class="bg-violet-300 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
 
     <nav class="relative">
         <div class="flex justify-between items-center p-6 bg-gradient-to-r from-pink-500 to-blue-500 shadow-md rounded-lg">
@@ -105,7 +88,7 @@
         <p class="text-sm">&copy; 2024 Hayat Aghdoube. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript for Dropdown Menu and Dark Mode Toggle -->
+   
     <script>
         const themeToggle = document.getElementById('theme-toggle');
         const lightIcon = document.getElementById('theme-toggle-light');
@@ -143,17 +126,7 @@
             }
         });
 
-        // Mouse wave effect
-        document.body.addEventListener('mousemove', (e) => {
-            const soundwave = document.createElement('div');
-            soundwave.classList.add('soundwave');
-            soundwave.style.left = `${e.pageX}px`;
-            soundwave.style.top = `${e.pageY}px`;
-            document.body.appendChild(soundwave);
-            setTimeout(() => {
-                soundwave.remove();
-            }, 600);
-        });
+       
     </script>
 </body>
 

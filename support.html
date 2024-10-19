@@ -13,49 +13,49 @@
         };
     </script>
     <style>
-        /* Added hover effect for social media icons */
+       
         .social-icon {
-            transition: transform 0.3s ease; /* Smooth transition */
+            transition: transform 0.3s ease; 
         }
 
         .social-icon:hover {
-            transform: scale(1.2); /* Scale up on hover */
+            transform: scale(1.2);
         }
 
-        /* Styles for the hero image container */
+       
         .hero-image {
-            position: relative; /* Allow absolute positioning of overlay */
-            overflow: hidden; /* Prevent overflow of children */
+            position: relative; 
+            overflow: hidden; 
         }
 
         .hero-overlay {
-            position: absolute; /* Position overlay absolutely */
+            position: absolute; 
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black */
-            transition: opacity 0.3s ease; /* Smooth transition for overlay */
+            background-color: rgba(0, 0, 0, 0.3); 
+            transition: opacity 0.3s ease; 
         }
 
         .hero-image:hover .hero-overlay {
-            opacity: 0.5; /* Change overlay opacity on hover */
+            opacity: 0.5;
         }
 
-        /* Flexbox to make sure footer is at the bottom */
+        
         body {
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+            min-height: 100vh; 
         }
 
         main {
-            flex: 1; /* Allow main content to grow and fill the available space */
+            flex: 1; 
         }
     </style>
 </head>
 
-<body class="bg-violet-300 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
 
     <nav class="relative">
         <div class="flex justify-between items-center p-6 bg-gradient-to-r from-pink-500 to-blue-500 shadow-md rounded-lg">
@@ -85,7 +85,7 @@
                 </button>
             </div>
         </div>
-        <!-- Dropdown Menu -->
+        
         <div id="dropdown-menu" class="hidden bg-gradient-to-r from-pink-500 to-blue-500 md:hidden">
             <div class="flex flex-col items-center p-4 space-y-2">
                 <a href="index.html" class="text-white text-lg font-semibold transition-colors duration-300 hover:text-yellow-300">Home</a>
@@ -126,7 +126,7 @@
             </div>
         </div>
 
-        <!-- Hero Image Removed -->
+        
         <div class="mt-10 hero-image">
             <div class="hero-overlay"></div>
         </div>
@@ -136,7 +136,7 @@
         <p class="text-sm">&copy; 2024 Hayat Aghdoube. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript for Dropdown Menu and Dark Mode Toggle -->
+    
     <script>
         const themeToggle = document.getElementById('theme-toggle');
         const lightIcon = document.getElementById('theme-toggle-light');
@@ -144,7 +144,7 @@
         const menuToggle = document.getElementById('menu-toggle');
         const dropdownMenu = document.getElementById('dropdown-menu');
 
-        // Changing themes
+        
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark');
             darkIcon.classList.add('hidden');

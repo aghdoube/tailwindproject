@@ -13,26 +13,8 @@
         };
     </script>
     <style>
-        .soundwave {
-            position: absolute;
-            height: 4px; 
-            background: rgba(62, 21, 182, 0.836);
-            pointer-events: none;
-            z-index: 1000;
-            transform: translateY(-50%);
-            animation: wave-animation 0.6s ease-out forwards;
-        }
+        
 
-        @keyframes wave-animation {
-            0% {
-                width: 0;
-                opacity: 1;
-            }
-            100% {
-                width: 300px; 
-                opacity: 0;
-            }
-        }
 
         img.pop-out {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -45,7 +27,7 @@
     </style>
 </head>
 
-<body class="bg-violet-300 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
 
     <nav class="relative">
         <div class="flex justify-between items-center p-6 bg-gradient-to-r from-pink-500 to-blue-500 shadow-md rounded-lg">
@@ -84,37 +66,71 @@
 
     <main class="p-10">
         <h1 class="text-3xl font-bold mb-6 text-center">Features</h1>
-        <div class="flex flex-wrap">
-
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    
             <!-- Feature 1 -->
-            <div class="w-full md:w-1/2 p-4">
-                <h2 class="text-2xl font-bold mb-2"> Immersive Sound Quality</h2>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">Experience crystal clear audio with enhanced bass and treble, allowing you to enjoy your favorite tracks like never before.</p>
-                <img src="images/girl.jpeg" alt="Immersive Sound Quality" class="w-full rounded-lg shadow-md mb-2 pop-out" />
+            <div class="flex flex-col items-center md:flex-row">
+                <div class="md:w-1/2 p-4">
+                    <h2 class="text-2xl font-bold mb-2">Immersive Sound Quality</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Experience crystal clear audio with enhanced bass and treble, allowing you to enjoy your favorite tracks like never before. Whether you're listening to music, watching movies, or playing games, the sound quality immerses you in the experience, making it feel like you're right in the middle of the action. 
+                        <br><br>
+                        Our advanced drivers and finely tuned acoustic design ensure a balanced sound signature, providing both clarity in high frequencies and depth in the bass. You’ll hear every detail, from subtle whispers to deep booming effects, with minimal distortion even at higher volumes.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="images/girl.jpeg" alt="Immersive Sound Quality" class="w-full rounded-lg shadow-md mb-2 pop-out" />
+                </div>
             </div>
-
+    
             <!-- Feature 2 -->
-            <div class="w-full md:w-1/2 p-4">
-                <h2 class="text-2xl font-bold mb-2"> Stylish Design</h2>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">Our headphones not only deliver superior sound but also feature a sleek, modern design that fits any style.</p>
-                <img src="images/hp3.jpeg" alt="Stylish Design" class="w-full rounded-lg shadow-md mb-2 pop-out" />
+            <div class="flex flex-col items-center md:flex-row">
+                <div class="md:w-1/2 p-4">
+                    <h2 class="text-2xl font-bold mb-2">Stylish Design</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Our headphones are designed not only for superior sound quality but also for a sleek, modern aesthetic. The minimalist design, combined with premium materials, ensures these headphones look as good as they sound. The smooth, matte finish is not only visually appealing but also resists fingerprints and smudges, keeping your headphones looking fresh at all times.
+                        <br><br>
+                        Available in a range of colors to suit your style, these headphones make a fashion statement whether you're at the gym, traveling, or just enjoying a day at home. The ergonomic design ensures a comfortable fit, making them perfect for all-day wear.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="images/hp3.jpeg" alt="Stylish Design" class="w-full rounded-lg shadow-md mb-2 pop-out" />
+                </div>
             </div>
-
+    
             <!-- Feature 3 -->
-            <div class="w-full md:w-1/2 p-4">
-                <h2 class="text-2xl font-bold mb-2"> Bluetooth Connectivity</h2>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">Enjoy seamless wireless connection with Bluetooth 5.0 technology, ensuring stable audio transmission and compatibility with various devices.</p>
-                <img src="images/bluetooth.jpeg" alt="Bluetooth Connectivity" class="w-full rounded-lg shadow-md mb-2 pop-out" />
+            <div class="flex flex-col items-center md:flex-row">
+                <div class="md:w-1/2 p-4">
+                    <h2 class="text-2xl font-bold mb-2">Bluetooth Connectivity</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Say goodbye to tangled wires with our advanced Bluetooth 5.0 connectivity. Offering faster pairing, greater range, and more reliable connections than previous versions, our headphones ensure a seamless wireless experience. Whether you're streaming from your phone, tablet, or laptop, the audio transmission is smooth and uninterrupted.
+                        <br><br>
+                        With multi-device support, you can easily switch between devices, from taking a call on your phone to returning to your favorite podcast on your laptop. Our low-latency mode also makes them perfect for gaming and watching videos, ensuring audio syncs perfectly with the visuals.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="images/bluetooth.jpeg" alt="Bluetooth Connectivity" class="w-full rounded-lg shadow-md mb-2 pop-out" />
+                </div>
             </div>
-
+    
             <!-- Feature 4 -->
-            <div class="w-full md:w-1/2 p-4">
-                <h2 class="text-2xl font-bold mb-2"> Comfortable Fit</h2>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">Designed for extended wear, these headphones come with soft ear cushions and an adjustable headband, ensuring a perfect fit for all head sizes.</p>
-                <img src="images/guy.jpeg" alt="Comfortable Fit" class="w-full rounded-lg shadow-md mb-2 pop-out" />
+            <div class="flex flex-col items-center md:flex-row">
+                <div class="md:w-1/2 p-4">
+                    <h2 class="text-2xl font-bold mb-2">Comfortable Fit</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Designed for maximum comfort, our headphones come with plush ear cushions and an adjustable headband to ensure a perfect fit for all users. The soft memory foam ear pads conform to the shape of your ears, providing a snug and comfortable seal without pressure, even during extended listening sessions.
+                        <br><br>
+                        The adjustable headband ensures that the headphones fit securely, whether you’re moving around or staying still. Lightweight yet durable, they’re designed to withstand daily use, making them your go-to for long flights, study sessions, or casual listening. The breathable materials prevent overheating, keeping you cool even during the most intense music sessions.
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="images/guy.jpeg" alt="Comfortable Fit" class="w-full rounded-lg shadow-md mb-2 pop-out" />
+                </div>
             </div>
         </div>
     </main>
+    
+    
 
     <footer class="bg-gray-100 dark:bg-gray-800 text-center p-6">
         <p class="text-sm">&copy; 2024 Hayat Aghdoube. All Rights Reserved.</p>
@@ -157,17 +173,7 @@
             }
         });
 
-        // Mouse wave effect
-        document.body.addEventListener('mousemove', (e) => {
-            const soundwave = document.createElement('div');
-            soundwave.classList.add('soundwave');
-            soundwave.style.left = `${e.pageX}px`;
-            soundwave.style.top = `${e.pageY}px`;
-            document.body.appendChild(soundwave);
-            setTimeout(() => {
-                soundwave.remove();
-            }, 600);
-        });
+        
     </script>
 </body>
 
